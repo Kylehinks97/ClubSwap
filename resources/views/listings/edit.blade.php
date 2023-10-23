@@ -2,18 +2,21 @@
     <x-card class="p-10 max-w-lg mx-auto mt-24">
         <header class="text-center">
             <h2 class="text-2xl font-bold uppercase mb-1">
-                Create a Gig
+                Edit Gig
             </h2>
-            <p class="mb-4">Post a gig to find a developer</p>
+            <p class="mb-4">Edit: <strong>{{ $listing->title }}</strong></p>
+
         </header>
 
-        <form action="/listings" method="POST" enctype="multipart/form-data">
+        <form action="/listings/{{ $listing->id }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="mb-6">  
+            @method('PUT')
+            <div class="mb-6">
                 <label for="company" class="inline-block text-lg mb-2">Company Name</label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" id='company' name="company" value="{{old('company')}}"/>
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" id='company' name="company"
+                    value="{{ $listing->company }}" />
 
-                @error('company')    
+                @error('company')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
@@ -21,7 +24,7 @@
             <div class="mb-6">
                 <label for="title" class="inline-block text-lg mb-2">Job Title</label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="title" id='title'
-                    placeholder="Example: Senior Laravel Developer" value="{{old('title')}}"/>
+                    placeholder="Example: Senior Laravel Developer" value="{{ $listing->title }}" />
 
                 @error('title')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -31,7 +34,7 @@
             <div class="mb-6">
                 <label for="location" class="inline-block text-lg mb-2">Job Location</label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="location" id='location'
-                    placeholder="Example: Remote, Boston MA, etc" value="{{old('location')}}"/>
+                    placeholder="Example: Remote, Boston MA, etc" value="{{ $listing->location }}" />
 
                 @error('location')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -40,7 +43,8 @@
 
             <div class="mb-6">
                 <label for="email" class="inline-block text-lg mb-2">Contact Email</label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" id='email' name="email" value="{{old('email')}}"/>
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" id='email' name="email"
+                    value="{{ $listing->email }}" />
 
                 @error('email')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -51,7 +55,8 @@
                 <label for="website" class="inline-block text-lg mb-2">
                     Website/Application URL
                 </label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" id='website' name="website" value="{{old('website')}}"/>
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" id='website' name="website"
+                    value="{{ $listing->website }}" />
 
                 @error('website')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -63,21 +68,25 @@
                     Tags (Comma Separated)
                 </label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="tags" id='tags'
-                    placeholder="Example: Laravel, Backend, Postgres, etc" value="{{old('tags')}}"/>
+                    placeholder="Example: Laravel, Backend, Postgres, etc" value="{{ $listing->tags }}" />
 
                 @error('tags')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                @enderror 
+                @enderror
             </div>
 
             <div class="mb-6">
                 <label for="logo" class="inline-block text-lg mb-2">
                     Company Logo
                 </label>
-                <input type="file" class="border border-gray-200 rounded p-2 w-full" name="logo" id="logo"/>
+                <input type="file" class="border border-gray-200 rounded p-2 w-full" name="logo" id="logo" />
 
-                @error('logo');
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                <img class="w-48 mr-6 mb-6"
+                    src="{{ $listing->logo ? asset('storage/' . $listing->logo) : asset('/images/no-image.png') }}"
+                    alt="" />
+
+                @error('logo')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
@@ -86,7 +95,7 @@
                     Job Description
                 </label>
                 <textarea class="border border-gray-200 rounded p-2 w-full" name="description" rows="10" id='description'
-                    placeholder="Include tasks, requirements, salary, etc" >{{old('description')}}</textarea>
+                    placeholder="Include tasks, requirements, salary, etc">{{ $listing->description }}</textarea>
 
                 @error('description')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>

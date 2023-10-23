@@ -33,6 +33,9 @@ Route::put('/listings/{listing}', [ListingController::class, 'update'])->middlew
 // Delete listing
 Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])->middleware('auth');
 
+// Manage listings
+Route::get('/listings/manage', [UserController::class, 'manage'])->middleware('auth');
+
 // Show register form
 Route::get('/register', [UserController::class, 'create'])->middleware('guest');
 
@@ -47,6 +50,8 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 
 // Log user in
 Route::post('users/authenticate', [UserController::class, 'authenticate']);
+
+
 
 // |---------------------------------------------------------------------------------------
 // | THIS ONE STAYS AT THE BOTTOM BECAUSE OTHERWISE IT MESSES UP THE URL's OF OTHER PAGES

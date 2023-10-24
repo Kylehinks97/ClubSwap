@@ -9,93 +9,80 @@
 
         <form action="/listings" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="mb-6">  
-                <label for="company" class="inline-block text-lg mb-2">Club Name</label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" id='company' name="company" value="{{old('company')}}"/>
-
-                @error('company')    
-                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                @enderror
-            </div>
-
-            <div class="mb-6">
-                <label for="title" class="inline-block text-lg mb-2">Job Title</label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="title" id='title'
-                    placeholder="Example: Senior Laravel Developer" value="{{old('title')}}"/>
+            <div class="mb-4">
+                <label for="title" class="inline-block text-md mb-1">Club Name</label>
+                <input type="text" class="border border-gray-200 rounded p-1 w-full" name="title" id='title'
+                    placeholder="Example: Big Bertha, M4, Pro V1" value="{{old('title')}}"/>
 
                 @error('title')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
-            <div class="mb-6">
-                <label for="location" class="inline-block text-lg mb-2">Job Location</label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="location" id='location'
-                    placeholder="Example: Remote, Boston MA, etc" value="{{old('location')}}"/>
-
-                @error('location')
-                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                @enderror
-            </div>
-
-            <div class="mb-6">
-                <label for="email" class="inline-block text-lg mb-2">Contact Email</label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" id='email' name="email" value="{{old('email')}}"/>
-
-                @error('email')
-                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                @enderror
-            </div>
-
-            <div class="mb-6">
-                <label for="website" class="inline-block text-lg mb-2">
-                    Website/Application URL
+            <div class="mb-4">
+                <label for="brand" class="inline-block text-md mb-1">
+                    Brand
                 </label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" id='website' name="website" value="{{old('website')}}"/>
-
-                @error('website')
-                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                @enderror
-            </div>
-
-            <div class="mb-6">
-                <label for="tags" class="inline-block text-lg mb-2">
-                    Tags (Comma Separated)
-                </label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="tags" id='tags'
-                    placeholder="Example: Laravel, Backend, Postgres, etc" value="{{old('tags')}}"/>
+                    <select
+                        type="text"
+                        class="border border-gray-200 rounded p-1 w-full"
+                        id='tags'
+                        name="tags"
+                        value="{{old('brand')}}">
+                    <option default disabled value="">Select brand</option>
+                    <option value="Titleist">Titleist</option>
+                    <option value="TaylorMade">TaylorMade</option>
+                    <option value="Callaway">Callaway</option>
+                    <option value="PING">PING</option>
+                    <option value="Mizuno">Mizuno</option>
+                    <option value="Cleveland">Cleveland</option>
+                    <option value="Srixon">Srixon</option>
+                    <option value="Cobra">Cobra</option>
+                    <option value="Wilson">Wilson</option>
+                    <option value="Bridgestone">Bridgestone</option>
+                    <option value="Odyssey">Odyssey</option>
+                    <option value="ScottY Cameron">Scotty Cameron</option>
+                    <option value="Adams">Adams</option>
+                    <option value="PXG">PXG</option>
+                    <option value="Tour Edge">Tour Edge</option>
+                    <option value="Ben Hogan">Ben Hogan</option>
+                    <option value="Miura">Miura</option>
+                    <option value="Bettinardi">Bettinardi</option>
+                    <option value="Honma">Honma</option>
+                    <option value="Rife">Rife</option>
+                </select>
 
                 @error('tags')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror 
             </div>
 
-            <div class="mb-6">
-                <label for="logo" class="inline-block text-lg mb-2">
-                    Company Logo
+            <div class="mb-4">
+                <label for="images" class="inline-block text-md mb-1">
+                    Images
                 </label>
-                <input type="file" class="border border-gray-200 rounded p-2 w-full" name="logo" id="logo"/>
+                <input type="file" class="border border-gray-200 rounded p-1 w-full" name="images" id="images"/>
 
-                @error('logo');
+                @error('images');
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                 @enderror
             </div>
 
-            <div class="mb-6">
-                <label for="description" class="inline-block text-lg mb-2">
-                    Job Description
+            <div class="mb-4">
+                <label for="description" class="inline-block text-md mb-2">
+                    Description
                 </label>
                 <textarea class="border border-gray-200 rounded p-2 w-full" name="description" rows="10" id='description'
-                    placeholder="Include tasks, requirements, salary, etc" >{{old('description')}}</textarea>
+                    placeholder="Looking to swap this club for a driver, enjoyed this club but looking for something with more flex..." >{{old('description')}}</textarea>
 
                 @error('description')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
-            <div class="mb-6">
+            <div class="mb-4">
                 <button class="bg-black text-white rounded py-2 px-4 hover:bg-cslightgreen">
-                    Create Gig
+                    Create Post
                 </button>
 
                 <a href="/" class="text-black ml-4 hover:text-cslightgreen hover:underline"> Back </a>

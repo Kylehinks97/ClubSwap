@@ -16,7 +16,7 @@
                 <x-listing-tags :tagsCsv="$listing->tags" />
 
                 <div class="text-lg my-4">
-                    <i class="fa-solid fa-location-dot"></i> {{ $listing->location }}
+                    <i class="fa-solid fa-location-dot"></i> {{ $listing->user->location }}
                 </div>
                 <div class="border border-gray-200 w-full mb-6"></div>
                 <div>

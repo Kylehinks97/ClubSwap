@@ -40,6 +40,16 @@
             </div>
 
             <div class="mb-4">
+                <label for="location" class="inline-block text-md mb-1">Location</label>
+                <input
+                    type="location"
+                    class="border border-gray-200 rounded p-1 w-full"
+                    id="location"
+                    name="location"
+                    value="{{ old('location') }}"/>
+            </div>
+
+            <div class="mb-4">
                 <label for="password" class="inline-block text-md mb-1">
                     Password
                 </label>

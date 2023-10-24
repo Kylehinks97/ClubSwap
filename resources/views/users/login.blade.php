@@ -1,18 +1,18 @@
 <x-layout>
-    <x-card class="p-10 max-w-lg mx-auto mt-24">
+    <x-card class="p-10 max-w-lg mx-auto">
         <header class="text-center">
             <h2 class="text-2xl font-bold uppercase mb-1">
                 Login
             </h2>
-            <p class="mb-4">Log into your account to post gigs</p>
+            <p class="mb-4">Log into your account to post clubs</p>
         </header>
 
         <form method="POST" action="/users/authenticate">
             @csrf
 
-            <div class="mb-6">
-                <label for="email" class="inline-block text-lg mb-2">Email</label>
-                <input type="email" class="border border-gray-200 rounded p-2 w-full" id="email" name="email"
+            <div class="mb-4">
+                <label for="email" class="inline-block text-md mb-1">Email</label>
+                <input type="email" class="border border-gray-200 rounded p-1 w-full" id="email" name="email"
                     value="{{ old('email') }}" />
 
                 @error('email')
@@ -21,11 +21,11 @@
                 
             </div>
 
-            <div class="mb-6">
-                <label for="password" class="inline-block text-lg mb-2">
+            <div class="mb-4">
+                <label for="password" class="inline-block text-md mb-1">
                     Password
                 </label>
-                <input type="password" class="border border-gray-200 rounded p-2 w-full" id="password" name="password"
+                <input type="password" class="border border-gray-200 rounded p-1 w-full" id="password" name="password"
                     value="{{ old('password') }}" />
 
                 @error('password')
@@ -33,16 +33,16 @@
                 @enderror
             </div>
 
-            <div class="mb-6">
-                <button type="submit" class="bg-laravel text-white rounded py-2 px-4 hover:bg-black">
+            <div class="mb-4  flex justify-center">
+                <button type="submit" class="bg-black w-full text-white rounded py-2 px-4 hover:bg-cslightgreen">
                     Sign In
                 </button>
             </div>
 
-            <div class="mt-8">
+            <div class="mt-8 flex justify-center">
                 <p>
                     Don't have an account?
-                    <a href="/register" class="text-laravel">Register</a>
+                    <a href="/register" class="text-cslightgreen hover:underline ">Register</a>
                 </p>
             </div>
         </form>

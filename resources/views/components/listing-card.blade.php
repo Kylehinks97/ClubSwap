@@ -15,7 +15,7 @@
             <ul class="flex">
             </ul>
             <div class="text-lg mt-4">
-                <i class="fa-solid fa-location-dot"></i>{{ $listing->location }}
+                <i class="fa-solid fa-location-dot mr-1"></i>{{ $listing->location }}
             </div>
         </div>
     </div>

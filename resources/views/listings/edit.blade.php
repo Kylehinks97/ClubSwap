@@ -103,11 +103,11 @@
             </div>
 
             <div class="mb-6">
-                <button class="bg-laravel text-white rounded py-2 px-4 hover:bg-black">
-                    Create Gig
+                <button class="bg-black text-white rounded py-2 px-4 hover:bg-cslightgreen">
+                    Update Post
                 </button>
 
-                <a href="/" class="text-black ml-4"> Back </a>
+                <a href="/listings/manage" class="text-black ml-4"> Back </a>
             </div>
         </form>
     </x-card>

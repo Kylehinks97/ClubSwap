@@ -1,22 +1,22 @@
 <x-layout>
-    <x-card class="p-10 max-w-lg mx-auto mt-24">
+    <x-card class="p-10 max-w-lg mx-auto">
         <header class="text-center">
             <h2 class="text-2xl font-bold uppercase mb-1">
                 Register
             </h2>
-            <p class="mb-4">Create an account to post gigs</p>
+            <p class="mb-4">Create an account to post clubs</p>
         </header>
 
         <form method="POST" action="/users">
             @csrf
 
-            <div class="mb-6">
-                <label for="name" class="inline-block text-lg mb-2">
+            <div class="mb-4">
+                <label for="name" class="inline-block text-md mb-1">
                     Name
                 </label>
                 <input
                     type="text"
-                    class="border border-gray-200 rounded p-2 w-full" 
+                    class="border border-gray-200 rounded p-1 w-full" 
                     id="name"
                     name="name"
                     value="{{ old('name') }}"/>
@@ -25,11 +25,11 @@
                 @enderror
             </div>
 
-            <div class="mb-6">
-                <label for="email" class="inline-block text-lg mb-2">Email</label>
+            <div class="mb-4">
+                <label for="email" class="inline-block text-md mb-1">Email</label>
                 <input
                     type="email"
-                    class="border border-gray-200 rounded p-2 w-full"
+                    class="border border-gray-200 rounded p-1 w-full"
                     id="email"
                     name="email"
                     value="{{ old('email') }}"/>
@@ -39,13 +39,13 @@
                 @enderror
             </div>
 
-            <div class="mb-6">
-                <label for="password" class="inline-block text-lg mb-2">
+            <div class="mb-4">
+                <label for="password" class="inline-block text-md mb-1">
                     Password
                 </label>
                 <input
                     type="password"
-                    class="border border-gray-200 rounded p-2 w-full"
+                    class="border border-gray-200 rounded p-1 w-full"
                     id="password" 
                     name="password"
                     value="{{ old('password') }}"/>
@@ -55,14 +55,14 @@
                 @enderror
             </div>
 
-            <div class="mb-6">
-                <label for="password_confirmation" class="inline-block text-lg mb-2">
+            <div class="mb-4">
+                <label for="password_confirmation" class="inline-block text-md mb-1">
                     Confirm Password
                 </label>
                 <input
                     type="password"
-                    class="border border-gray-200 rounded p-2 w-full"
-                    id ="password-confirmation"
+                    class="border border-gray-200 rounded p-1 w-full"
+                    id="password_confirmation"
                     name="password_confirmation" 
                     value="{{ old('password_confirmation') }}"/>
 
@@ -71,16 +71,16 @@
                 @enderror
             </div>
 
-            <div class="mb-6">
-                <button type="submit" class="bg-laravel text-white rounded py-2 px-4 hover:bg-black">
+            <div class="mb-6  flex justify-center">
+                <button type="submit" class="bg-black w-full text-white rounded py-2 px-4 hover:bg-cslightgreen">
                     Sign Up
                 </button>
             </div>
 
-            <div class="mt-8">
+            <div class="mt-8 flex justify-center">
                 <p>
                     Already have an account?
-                    <a href="/login" class="text-laravel">Login</a>
+                    <a href="/login" class="text-cslightgreen hover:underline">Login</a>
                 </p>
             </div>
         </form>

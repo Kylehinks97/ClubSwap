@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\URL;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 
@@ -21,6 +22,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
-        Model::unguard(); 
+        Model::unguard();
+
+        if ($this->app->environment('production')) {
+            URL::forceScheme('https');
+        }
     }
 }

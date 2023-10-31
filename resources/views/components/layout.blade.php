@@ -11,13 +11,14 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="//unpkg.com/alpinejs" defer></script>
     <title>ClubSwap | Find and Swap Golf Clubs</title>
-    <link href="{{ asset('output.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('output.css') }}" rel="stylesheet">
+
 </head>
 
 <body class="mb-48">
     <nav class="flex justify-between items-center">
         <a href="/" class="flex items-center">
-            <img class="w-24 p-1" src="{{ asset('images/logo.png') }}" alt="" class="logo" />
+            <img class="w-24 p-1" src="{{ secure_asset('images/logo.png') }}" alt="" class="logo" />
             <h2 class="hidden lg:block text-6xl font-extrabold text-csdarkgreen">CLUB<span
                     class="font-extrabold lg:inline-block text-cslightgreen">SWAP</span></h2>
         </a>

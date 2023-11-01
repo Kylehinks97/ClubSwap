@@ -20,7 +20,7 @@
         <a href="/" class="flex items-center">
             <img class="w-24 p-1" src="{{ secure_asset('images/logo.png') }}" alt="" class="logo" />
             <h2 class="hidden lg:block text-5xl font-extrabold text-csdarkgreen">CLUB<span
-                    class="font-extrabold lg:inline-block text-cslightgreen">SWAP</span></h2>
+                    class="font-extrabold lg:inline-block text-cslightgreen md:inline-block">SWAP</span></h2>
         </a>
 
         <ul class="flex space-x-6 mr-6 text-lg">

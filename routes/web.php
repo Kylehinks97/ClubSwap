@@ -60,6 +60,9 @@ Route::get('/conversations', [ConversationController::class, 'index']);
 // Create new conversation
 Route::post('/conversations', [ConversationController::class, 'create'])->middleware('auth');
 
+// Create new conversation
+Route::get('/conversations/create', [ConversationController::class, 'create'])->middleware('auth');
+
 // |---------------------------------------------------------------------------------------
 // | THIS ONE STAYS AT THE BOTTOM BECAUSE OTHERWISE IT MESSES UP THE URL's OF OTHER PAGES
 // |---------------------------------------------------------------------------------------

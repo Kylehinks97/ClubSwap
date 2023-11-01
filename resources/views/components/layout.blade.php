@@ -12,6 +12,15 @@
     <script src="//unpkg.com/alpinejs" defer></script>
     <title>ClubSwap | Find and Swap Golf Clubs</title>
     <link href="{{ secure_asset('output.css') }}" rel="stylesheet">
+    <style>
+        @media screen and (max-width: 480px) {
+
+            #mainTitle,
+            #highlightedTitle {
+                display: none;
+            }
+        }
+    </style>
 
 </head>
 
@@ -19,8 +28,8 @@
     <nav class="flex justify-between items-center">
         <a href="/" class="flex items-center">
             <img class="w-24 p-1" src="{{ secure_asset('images/logo.png') }}" alt="" class="logo" />
-            <h2 class="lg:hidden text-5xl font-extrabold text-csdarkgreen">CLUB<span
-                    class="font-extrabold lg:hidden text-cslightgreen">SWAP</span></h2>
+            <h2 id="mainTitle" class="text-5xl font-extrabold text-csdarkgreen">CLUB<span id="highlightedTitle"
+                    class="font-extrabold text-cslightgreen">SWAP</span></h2>
 
         </a>
 

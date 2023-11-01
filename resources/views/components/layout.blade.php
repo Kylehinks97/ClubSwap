@@ -59,6 +59,11 @@
                         Login
                     </a>
                 </li>
+                  <li>
+                    <a href="/conversations" class="hover:text-cslightgreen"><i class="fa-solid fa-comment"></i>
+                        Inbox
+                    </a>
+                </li>
             @endauth
         </ul>
     </nav>

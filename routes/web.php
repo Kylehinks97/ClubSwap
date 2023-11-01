@@ -53,15 +53,8 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 // Log user in
 Route::post('users/authenticate', [UserController::class, 'authenticate']);
 
-// test route
-
-
-Route::get('/firebase-test', function () {
-    $factory = (new Factory)->withServiceAccount(base_path('firebase_credentials.json'));
-    $storage = $factory->createStorage();
-    dd($storage);
-});
-
+// All conversations
+Route::get('/conversations', [ConversationController::class, 'index']);
 
 // |---------------------------------------------------------------------------------------
 // | THIS ONE STAYS AT THE BOTTOM BECAUSE OTHERWISE IT MESSES UP THE URL's OF OTHER PAGES

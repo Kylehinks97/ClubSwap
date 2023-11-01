@@ -50,6 +50,7 @@ class ListingController extends Controller
             $defaultBucket = $firebaseStorage->getBucket();
             $firebaseStoragePath = 'listing_images/' . $imageName;
 
+            
             $imageStream = fopen($image->getRealPath(), 'r');
 
             try {

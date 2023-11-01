@@ -36,7 +36,7 @@
                     </a>
                 </li>
                   <li>
-                    <a href="/conversations" class="hover:text-cslightgreen"><i class="fa-solid fa-comment"></i>
+                    <a href="/conversations" class="hover:text-cslightgreen md:block"><i class="fa-solid fa-comment hidden md:block mr-1 text-3xl md:text-base sm:text-base lg:text-base"></i>
                         Inbox
                     </a>
                 </li>

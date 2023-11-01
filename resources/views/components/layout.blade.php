@@ -52,7 +52,7 @@
                     </form>
                 </li>
                 <li>
-                    <i class="fas fa-bars block md:hidden lg:hidden xl:hidden text-5xl"></i>
+                    <i class="fas fa-bars block md:hidden lg:hidden xl:hidden text-5xl pointer"></i>
                 </li>
             @else
             <li>
@@ -69,7 +69,7 @@
                     </a>
                 </li>
                 <li>
-                    <i class="fas fa-bars block md:hidden lg:hidden xl:hidden text-5xl"></i>
+                    <i class="fas fa-bars block md:hidden lg:hidden xl:hidden text-5xl pointer"></i>
                 </li>
                 @endauth
             </ul>

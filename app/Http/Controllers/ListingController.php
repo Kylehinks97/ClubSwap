@@ -55,7 +55,10 @@ class ListingController extends Controller
             
             $defaultBucket->upload($imageStream, ['name' => $firebaseStoragePath]);
 
-            $formFields['images'] = $firebaseStoragePath;
+            $fullImageUrl = 'https://firebasestorage.googleapis.com/v0/b/' . $defaultBucket->name() . '/o/' . urlencode($firebaseStoragePath) . '?alt=media';
+
+
+            $formFields['images'] = $fullImageUrl;
         }
 
         $formFields['user_id'] = auth()->id();

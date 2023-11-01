@@ -34,6 +34,7 @@
                     <option value="TaylorMade">TaylorMade</option>
                     <option value="Callaway">Callaway</option>
                     <option value="PING">PING</option>
+                    <option value="Nike">Nike</option>
                     <option value="Mizuno">Mizuno</option>
                     <option value="Cleveland">Cleveland</option>
                     <option value="Srixon">Srixon</option>

@@ -9,10 +9,9 @@ class ConversationController extends Controller
 {
     public function index(Request $request)
     {
-        return 'hi';
-        // return view('conversations.index', [
-        //     'conversations' => Conversation::latest()->paginate(8)
-        // ]);
+        return view('conversations.index', [
+            'conversations' => Conversation::latest()->paginate(8)
+        ]);
     }
 
 }

@@ -55,11 +55,8 @@
                     <i class="fas fa-bars block md:hidden lg:hidden xl:hidden text-5xl"></i>
                 </li>
             @else
-                <li>
-                    <i class="fas fa-bars block md:hidden lg:hidden xl:hidden text-5xl"></i>
-                </li>
-                <li>
-                    <a href="/register" class="hover:text-cslightgreen flex items-center">
+            <li>
+                <a href="/register" class="hover:text-cslightgreen flex items-center">
                         <i class="fa-solid fa-user-plus hidden md:block mr-1 text-3xl sm:text-base lg:text-base"></i>
                         <span class="hidden md:block">Register</span>
                     </a>
@@ -67,14 +64,17 @@
                 <li>
                     <a href="/login" class="hover:text-cslightgreen flex items-center">
                         <i
-                            class="fa-solid fa-arrow-right-to-bracket hidden md:block mr-1 text-3xl sm:text-base lg:text-base"></i>
+                        class="fa-solid fa-arrow-right-to-bracket hidden md:block mr-1 text-3xl sm:text-base lg:text-base"></i>
                         <span class="hidden md:block">Login</span>
                     </a>
                 </li>
-            @endauth
-        </ul>
-    </nav>
-    <main>
+                <li>
+                    <i class="fas fa-bars block md:hidden lg:hidden xl:hidden text-5xl"></i>
+                </li>
+                @endauth
+            </ul>
+        </nav>
+        <main>
         {{ $slot }}
     </main>
     <footer

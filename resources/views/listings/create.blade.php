@@ -41,7 +41,7 @@
                     <option value="Wilson">Wilson</option>
                     <option value="Bridgestone">Bridgestone</option>
                     <option value="Odyssey">Odyssey</option>
-                    <option value="ScottY Cameron">Scotty Cameron</option>
+                    <option value="Scotty Cameron">Scotty Cameron</option>
                     <option value="Adams">Adams</option>
                     <option value="PXG">PXG</option>
                     <option value="Tour Edge">Tour Edge</option>

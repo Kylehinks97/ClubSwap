@@ -57,7 +57,7 @@ Route::post('users/authenticate', [UserController::class, 'authenticate']);
 
 
 Route::get('/firebase-test', function () {
-    $factory = (new Factory)->withServiceAccount(base_path('path/to/firebase_credentials.json'));
+    $factory = (new Factory)->withServiceAccount(base_path('firebase_credentials.json'));
     $storage = $factory->createStorage();
     dd($storage);
 });

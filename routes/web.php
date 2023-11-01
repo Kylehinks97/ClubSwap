@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ListingController;
 
+use Kreait\Firebase\Factory;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,6 +53,14 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 // Log user in
 Route::post('users/authenticate', [UserController::class, 'authenticate']);
 
+// test route
+
+
+Route::get('/firebase-test', function () {
+    $factory = (new Factory)->withServiceAccount(base_path('path/to/firebase_credentials.json'));
+    $storage = $factory->createStorage();
+    dd($storage);
+});
 
 
 // |---------------------------------------------------------------------------------------

@@ -57,6 +57,9 @@ Route::post('users/authenticate', [UserController::class, 'authenticate']);
 // All conversations
 Route::get('/conversations', [ConversationController::class, 'index']);
 
+// Create new conversation
+Route::post('/conversations', [ConversationController::class, 'create'])->middleware('auth');
+
 // |---------------------------------------------------------------------------------------
 // | THIS ONE STAYS AT THE BOTTOM BECAUSE OTHERWISE IT MESSES UP THE URL's OF OTHER PAGES
 // |---------------------------------------------------------------------------------------

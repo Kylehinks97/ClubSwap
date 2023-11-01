@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Kreait\Firebase\Factory;
+use Kreait\Firebase\Storage;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -40,7 +42,19 @@ class ListingController extends Controller
         ]);
 
         if ($request->hasFile('images')) {
-            $formFields['images'] = $request->file('images')->store('logos', 'public');
+            $image = $request->file('images');
+            $imageName = time() . '_' . $image->getClientOriginalName();
+
+            $firebaseStorage = app('firebase.storage');
+            $defaultBucket = $firebaseStorage->getBucket();
+            $firebaseStoragePath = 'logos/' . $imageName;
+
+            $imageStream = fopen($image->getRealPath(), 'r');
+            $defaultBucket->upload($imageStream, ['name' => $firebaseStoragePath]);
+            fclose($imageStream);
+
+            // Store just the path in your database
+            $formFields['images'] = $firebaseStoragePath;
         }
 
         $formFields['user_id'] = auth()->id();

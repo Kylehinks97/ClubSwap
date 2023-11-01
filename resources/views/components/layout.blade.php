@@ -35,6 +35,11 @@
                         <span class="hidden md:block">Manage Posts</span>
                     </a>
                 </li>
+                  <li>
+                    <a href="/conversations" class="hover:text-cslightgreen"><i class="fa-solid fa-comment"></i>
+                        Inbox
+                    </a>
+                </li>
                 <li>
                     <form class="inline" method="POST" action="/logout">
                         @csrf
@@ -57,11 +62,6 @@
                 <li>
                     <a href="/login" class="hover:text-cslightgreen"><i class="fa-solid fa-arrow-right-to-bracket"></i>
                         Login
-                    </a>
-                </li>
-                  <li>
-                    <a href="/conversations" class="hover:text-cslightgreen"><i class="fa-solid fa-comment"></i>
-                        Inbox
                     </a>
                 </li>
             @endauth

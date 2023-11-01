@@ -19,8 +19,9 @@
     <nav class="flex justify-between items-center">
         <a href="/" class="flex items-center">
             <img class="w-24 p-1" src="{{ secure_asset('images/logo.png') }}" alt="" class="logo" />
-            <h2 class="hidden lg:block text-5xl font-extrabold text-csdarkgreen">CLUB<span
-                    class="font-extrabold lg:inline-block text-cslightgreen md:inline-block">SWAP</span></h2>
+            <h2 class="lg:hidden text-5xl font-extrabold text-csdarkgreen">CLUB<span
+                    class="font-extrabold lg:hidden text-cslightgreen">SWAP</span></h2>
+
         </a>
 
         <ul class="flex space-x-6 mr-6 text-lg">
@@ -55,8 +56,8 @@
                     <i class="fas fa-bars block md:hidden lg:hidden xl:hidden text-5xl cursor-pointer"></i>
                 </li>
             @else
-            <li>
-                <a href="/register" class="hover:text-cslightgreen flex items-center">
+                <li>
+                    <a href="/register" class="hover:text-cslightgreen flex items-center">
                         <i class="fa-solid fa-user-plus hidden md:block mr-1 text-3xl sm:text-base lg:text-base"></i>
                         <span class="hidden md:block">Register</span>
                     </a>
@@ -64,17 +65,17 @@
                 <li>
                     <a href="/login" class="hover:text-cslightgreen flex items-center">
                         <i
-                        class="fa-solid fa-arrow-right-to-bracket hidden md:block mr-1 text-3xl sm:text-base lg:text-base"></i>
+                            class="fa-solid fa-arrow-right-to-bracket hidden md:block mr-1 text-3xl sm:text-base lg:text-base"></i>
                         <span class="hidden md:block">Login</span>
                     </a>
                 </li>
                 <li>
                     <i class="fas fa-bars block md:hidden lg:hidden xl:hidden text-5xl cursor-pointer"></i>
                 </li>
-                @endauth
-            </ul>
-        </nav>
-        <main>
+            @endauth
+        </ul>
+    </nav>
+    <main>
         {{ $slot }}
     </main>
     <footer

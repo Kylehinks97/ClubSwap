@@ -21,7 +21,6 @@ return new class extends Migration
             $table->foreign('last_message_user_id')->references('id')->on('users')->onDelete('set null'); // Set to null if user is deleted
         });
     }
-
     public function down(): void
     {
         Schema::dropIfExists('conversations');

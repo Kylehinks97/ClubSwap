@@ -56,13 +56,19 @@
                 </li>
             @else
                 <li>
-                    <a href="/register" class="hover:text-cslightgreen"><i class="fa-solid fa-user-plus"></i>
-                        Register
+                    <i class="fas fa-bars block md:hidden lg:hidden xl:hidden text-5xl"></i>
+                </li>
+                <li>
+                    <a href="/register" class="hover:text-cslightgreen flex items-center">
+                        <i class="fa-solid fa-user-plus hidden md:block mr-1 text-3xl sm:text-base lg:text-base"></i>
+                        <span class="hidden md:block">Register</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/login" class="hover:text-cslightgreen"><i class="fa-solid fa-arrow-right-to-bracket"></i>
-                        Login
+                    <a href="/login" class="hover:text-cslightgreen flex items-center">
+                        <i
+                            class="fa-solid fa-arrow-right-to-bracket hidden md:block mr-1 text-3xl sm:text-base lg:text-base"></i>
+                        <span class="hidden md:block">Login</span>
                     </a>
                 </li>
             @endauth

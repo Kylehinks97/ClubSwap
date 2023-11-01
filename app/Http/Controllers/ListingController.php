@@ -54,7 +54,6 @@ class ListingController extends Controller
             $imageStream = fopen($image->getRealPath(), 'r');
             
             $defaultBucket->upload($imageStream, ['name' => $firebaseStoragePath]);
-            fclose($imageStream);
 
             $formFields['images'] = $firebaseStoragePath;
         }

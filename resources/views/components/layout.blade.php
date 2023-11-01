@@ -21,7 +21,7 @@
             }
         }
 
-        @media (min-width: 769px) and (max-width: 1000px) {
+        @media (min-width: 768px) and (max-width: 1000px) {
 
             #greeting
             {

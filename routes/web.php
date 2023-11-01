@@ -1,10 +1,11 @@
 <?php
 
+use Kreait\Firebase\Factory;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ListingController;
 
-use Kreait\Firebase\Factory;
+use App\Http\Controllers\ListingController;
+use App\Http\Controllers\ConversationController;
 
 /*
 |--------------------------------------------------------------------------

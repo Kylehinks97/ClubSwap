@@ -20,6 +20,14 @@
                 display: none;
             }
         }
+
+        @media (min-width: 769px) and (max-width: 1000px) {
+
+            #greeting,
+            {
+            display: none;
+        }
+        }
     </style>
 
 </head>
@@ -35,7 +43,7 @@
 
         <ul class="flex space-x-6 mr-6 text-lg">
             @auth
-                <li>
+                <li id="greeting">
                     <span class="font-bold hidden uppercase md:block lg:block">Welcome, {{ auth()->user()->name }}</span>
                 </li>
                 <li>

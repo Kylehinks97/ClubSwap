@@ -52,6 +52,24 @@ class ListingController extends Controller
             $firebaseStoragePath = 'listing-images/' . $imageName;
 
             $imageStream = fopen($image->getRealPath(), 'r');
+
+            if (is_resource($imageStream)) {
+                try {
+                    $defaultBucket->upload($imageStream, ['name' => $firebaseStoragePath]);
+                } catch (\Exception $e) {
+                    // Handle exceptions here, e.g., logging the error
+                    Log::error("Error uploading to Firebase: " . $e->getMessage());
+                }
+
+                // Close the stream only if it's still open
+                if (is_resource($imageStream)) {
+                    fclose($imageStream);
+                }
+            } else {
+                // Handle the error if the file couldn't be opened
+                Log::error("Unable to open the image stream for reading.");
+            }
+
             $defaultBucket->upload($imageStream, ['name' => $firebaseStoragePath]);
             fclose($imageStream);
 

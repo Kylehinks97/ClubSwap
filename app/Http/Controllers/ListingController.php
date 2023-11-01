@@ -46,21 +46,15 @@ class ListingController extends Controller
             $image = $request->file('images');
             $imageName = time() . '_' . $image->getClientOriginalName();
 
-            $firebaseStorage = app('firebase.storage');
+            $factory = new Factory;
+            $firebaseStorage = $factory->withServiceAccount(base_path('firebase_credentials.json'))->createStorage();
             $defaultBucket = $firebaseStorage->getBucket();
-            $firebaseStoragePath = 'listing_images/' . $imageName;
+            $firebaseStoragePath = 'listing-images/' . $imageName;
 
-            
             $imageStream = fopen($image->getRealPath(), 'r');
-
-            try {
-                $defaultBucket->upload($imageStream, ['name' => $firebaseStoragePath]);
-            } catch (\Exception $e) {
-                Log::error('Error uploading image to Firebase: ' . $e->getMessage());
-            }
+            $defaultBucket->upload($imageStream, ['name' => $firebaseStoragePath]);
             fclose($imageStream);
 
-            // Store just the path in your database
             $formFields['images'] = $firebaseStoragePath;
         }
 

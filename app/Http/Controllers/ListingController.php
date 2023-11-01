@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Kreait\Firebase\Factory;
-use Kreait\Firebase\Storage;
 use App\Models\Listing;
 use Illuminate\Http\Request;
+use Kreait\Firebase\Factory;
+use Kreait\Firebase\Storage;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Log;
 
 class ListingController extends Controller
 {
@@ -47,10 +48,15 @@ class ListingController extends Controller
 
             $firebaseStorage = app('firebase.storage');
             $defaultBucket = $firebaseStorage->getBucket();
-            $firebaseStoragePath = 'logos/' . $imageName;
+            $firebaseStoragePath = 'listing_images/' . $imageName;
 
             $imageStream = fopen($image->getRealPath(), 'r');
-            $defaultBucket->upload($imageStream, ['name' => $firebaseStoragePath]);
+
+            try {
+                $defaultBucket->upload($imageStream, ['name' => $firebaseStoragePath]);
+            } catch (\Exception $e) {
+                Log::error('Error uploading image to Firebase: ' . $e->getMessage());
+            }
             fclose($imageStream);
 
             // Store just the path in your database

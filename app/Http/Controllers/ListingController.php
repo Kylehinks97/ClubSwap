@@ -45,26 +45,18 @@ class ListingController extends Controller
         if ($request->hasFile('images')) {
             $image = $request->file('images');
             $imageName = time() . '_' . $image->getClientOriginalName();
-            $firebaseStorage = app('firebase.storage');
+
+            $factory = new Factory;
+            $firebaseStorage = $factory->withServiceAccount(base_path('firebase_credentials.json'))->createStorage();
             $defaultBucket = $firebaseStorage->getBucket();
             $firebaseStoragePath = 'listing-images/' . $imageName;
 
             $imageStream = fopen($image->getRealPath(), 'r');
+            
+            $defaultBucket->upload($imageStream, ['name' => $firebaseStoragePath]);
+            fclose($imageStream);
 
-            // Check if the file was successfully opened
-            if ($imageStream) {
-                // Upload the file
-                $defaultBucket->upload($imageStream, ['name' => $firebaseStoragePath]);
-
-                // Close the file stream
-                fclose($imageStream);
-
-                // Store the path in your database
-                $formFields['images'] = $firebaseStoragePath;
-            } else {
-                // Handle the error if the file couldn't be opened
-                Log::error("Unable to open the image stream for reading.");
-            }
+            $formFields['images'] = $firebaseStoragePath;
         }
 
         $formFields['user_id'] = auth()->id();

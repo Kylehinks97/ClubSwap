@@ -35,6 +35,13 @@
                 border-top-left-radius: 0;
                 /* Remove rounding from top-left corner */
             }
+
+            .fit-content {
+                display: inline-block;
+                width: fit-content;
+                max-width: 100%;
+                /* Optional: To ensure it doesn't overflow its container */
+            }
         </style>
 
         <header>
@@ -47,7 +54,7 @@
         <div id='scrollable-div' class="bg-white p-6 rounded-lg shadow-lg overflow-y-auto" style="height: 400px;">
             @foreach ($messages as $message)
                 <div class="{{ $message->user_id == auth()->id() ? 'text-right' : '' }}">
-                    <div class="bg-black text-white custom-rounded w-auto px-4 py-2 my-2 ml-4">
+                    <div class="bg-black text-white custom-rounded fit-content px-4 py-2 my-2 ml-4">
                         {{ $message->body }}
                     </div>
                     <span class="text-xs text-gray-600">

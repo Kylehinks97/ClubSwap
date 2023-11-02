@@ -53,13 +53,13 @@
             </h1>
         </header>
         <strong>Current user ID: {{ auth()->id() }}</strong>
-        <strong>Convo user_two_id: {{ $conversation->user_id_one }}</strong>
+        <strong>Convo user_two_id: {{ $messages->user_id }}</strong>
 
 
         <!-- Chat Box for Message History -->
         <div id='scrollable-div' class="bg-white p-6 rounded-lg shadow-lg overflow-y-auto" style="height: 400px;">
             @foreach ($messages as $message)
-                <div class="message">
+                <div class="{{ $message->user_id == auth()->id() ? 'text-left' : 'text-right' }} message">
                     <div class="bg-black text-white custom-rounded fit-content px-4 py-2 my-2 ml-4">
                         {{ $message->body }}
                     </div>

@@ -28,7 +28,7 @@
             @error('message')
                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
             @enderror
-            <button type="submit" class="bg-black hover:bg-cslightgreen p-1 mt-2 text-white">
+            <button type="submit" class="bg-black hover:bg-cslightgreen py-2 px-4  mt-2 text-white">
                 Send Message
             </button>
         </form>

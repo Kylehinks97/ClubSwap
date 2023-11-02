@@ -5,6 +5,7 @@
                 Conversations
             </h1>
         </header>
+        
         <table class="w-full table-auto rounded-sm">
             <tbody>
                 @unless ($conversations->isEmpty())

@@ -65,7 +65,7 @@
                 background-color: #379634;
                 color: white;
                 margin-left: auto;
-                border-radius: 15px 0 15px 15px; /
+                border-radius: 15px 0 15px 15px;/
             }
 
             .message-content {
@@ -74,11 +74,17 @@
             }
 
             .created-at-left {
-                margin-right: auto;
+                display: block;
+                text-align: left;
+                margin-left: 10px;
+                /* Adjust as needed */
             }
 
             .created-at-right {
-                margin-left: auto;
+                display: block;
+                text-align: right;
+                margin-right: 10px;
+                /* Adjust as needed */
             }
         </style>
 
@@ -97,7 +103,8 @@
                     <br>
                 </div>
                 @if ($loop->last)
-                    <span class="{{ $message->user_id == auth()->id() ? 'created-at-left' : 'created-at-right' }} text-xs ml-4 text-gray-600">
+                    <span
+                        class="{{ $message->user_id == auth()->id() ? 'created-at-left' : 'created-at-right' }} text-xs text-gray-600">
                         {{ $message->created_at->diffForHumans() }}
                     </span>
                 @endif

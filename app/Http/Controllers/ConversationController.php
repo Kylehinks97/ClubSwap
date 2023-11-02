@@ -40,7 +40,7 @@ class ConversationController extends Controller
     {
         $recipientUserId = $request->query('user_id');
         $recipientUser = User::find($recipientUserId);
-        return view('conversations.create', ['userId' => $recipientUser]); // make sure the view exists
+        return view('conversations.create', ['recipientUser' => $recipientUser]); // make sure the view exists
     }
 
 }

@@ -20,6 +20,7 @@
                 </div>
             @endforeach
         </div>
+        
 
         <!-- New Message Form -->
         <form method="POST" action="{{ route('conversations.messages.store', $conversationId) }}" class="mt-6">

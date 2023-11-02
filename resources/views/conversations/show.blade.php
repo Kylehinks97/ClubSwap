@@ -56,23 +56,20 @@
 
             .message-left .message-content {
                 background-color: #000;
-                /* or your desired color */
                 color: white;
                 margin-right: auto;
-                /* aligns the bubble to the left */
+                border-radius: 0 15px 15px 15px;
             }
 
             .message-right .message-content {
                 background-color: #379634;
-                /* or your desired color */
                 color: white;
                 margin-left: auto;
-                /* aligns the bubble to the right */
+                border-radius: 15px 0 15px 15px; /
             }
 
             .message-content {
                 padding: 8px 15px;
-                border-radius: 15px;
                 max-width: 70%;
             }
 

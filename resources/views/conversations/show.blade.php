@@ -83,8 +83,6 @@
         <!-- Chat Box for Message History -->
         <div id='scrollable-div' class="bg-white p-6 rounded-lg shadow-lg overflow-y-auto" style="height: 400px;">
             @foreach ($messages as $message)
-                <strong>{{ $message->user_id }}</strong>
-                <strong>{{ auth()->id() }}</strong>
                 <div class="{{ $message->user_id == auth()->id() ? 'message-left' : 'message-right' }} message">
                     <div class="message-content custom-rounded fit-content px-4 py-2 my-2 ml-4">
                         {{ $message->body }}

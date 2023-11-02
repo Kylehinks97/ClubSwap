@@ -10,7 +10,7 @@
         <div class="bg-white p-6 rounded-lg shadow-lg overflow-scroll" style="height: 400px;">
             @foreach ($messages as $message)
                 <div class="{{ $message->user_id == auth()->id() ? 'text-right' : '' }}">
-                    <div class="inline-block bg-gray-200 rounded-lg px-4 py-2 my-2 {{ $message->user_id == auth()->id() ? 'bg-blue-200 ml-4' : 'mr-4' }}">
+                    <div class="{{ $message->user_id == auth()->id() ? 'inline-block bg-gray-200 rounded-tl-none rounded-lg px-4 py-2 my-2 ml-4' : 'inline-block bg-gray-100 rounded-lg px-4 py-2 my-2 mr-4' }}">
                         {{ $message->body }}
                     </div>
                     <br>
@@ -21,7 +21,6 @@
             @endforeach
         </div>
 
-
         <!-- New Message Form -->
         <form method="POST" action="{{ route('conversations.messages.store', $conversationId) }}" class="mt-6">
             @csrf
@@ -29,9 +28,10 @@
             @error('message')
                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
             @enderror
-            <button type="submit" class="bg-black hover:bg-csgreen p-1">
+            <button type="submit" class="bg-black hover:bg-cslightgreen p-1 mt-2 text-white">
                 Send Message
             </button>
         </form>
     </x-card>
 </x-layout>
+

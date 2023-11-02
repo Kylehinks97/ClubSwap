@@ -25,7 +25,7 @@ class MessageController extends Controller
         $message = new Message();
         $message->conversation_id = $conversationId;
         $message->user_id = Auth::id();
-        $message->content = $request->message;
+        $message->body = $request->message;
         $message->save();
 
         return redirect()->back()->with('success', 'Message sent successfully.');

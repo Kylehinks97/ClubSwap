@@ -76,14 +76,14 @@
             .created-at-left {
                 display: block;
                 text-align: left;
-                margin-left: 10px;
+                margin-left: 8px;
                 /* Adjust as needed */
             }
 
             .created-at-right {
                 display: block;
                 text-align: right;
-                margin-right: 10px;
+                margin-right: 8px;
                 /* Adjust as needed */
             }
         </style>

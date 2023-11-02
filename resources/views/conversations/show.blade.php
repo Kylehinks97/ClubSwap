@@ -55,7 +55,7 @@
             }
 
             .message-left .message-content {
-                background-color: #379634;
+                background-color: #000;
                 /* or your desired color */
                 color: white;
                 margin-right: auto;
@@ -63,7 +63,7 @@
             }
 
             .message-right .message-content {
-                background-color: #000000;
+                background-color: #379634;
                 /* or your desired color */
                 color: white;
                 margin-left: auto;

@@ -84,6 +84,11 @@
                 text-align: right;
                 margin-right: 8px;
             }
+
+            #input {
+                box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            }
+            
         </style>
 
         <header>
@@ -111,7 +116,7 @@
         <!-- New Message Form -->
         <form method="POST" action="{{ route('conversations.messages.store', $conversationId) }}" class="mt-6">
             @csrf
-            <textarea class="w-full border border-gray-300 shadow-lg p-2" name="message" rows="2"
+            <textarea class="w-full border border-gray-300 shadow-lg p-2" id="input" name="message" rows="2"
                 placeholder="Type your message here..."></textarea>
             @error('message')
                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>

@@ -63,8 +63,9 @@ Route::get('/conversations/create', [ConversationController::class, 'create'])->
 // Actually create the conversation
 Route::post('/conversations', [ConversationController::class, 'store'])->middleware('auth');
 
-// Show a conversation
-Route::get('/conversations/{conversation}', [ConversationController::class, 'show'])->middleware('auth');
+Route::get('/conversations/{conversation}', [ConversationController::class, 'show'])
+    ->name('conversations.show')
+    ->middleware('auth');
 
 
 // |---------------------------------------------------------------------------------------

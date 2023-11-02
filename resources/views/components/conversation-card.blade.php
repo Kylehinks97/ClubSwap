@@ -1,4 +1,4 @@
-@props(['conversation'])
+{{-- @props(['conversation'])
 
 <x-card>
     <div class="flex">
@@ -6,4 +6,4 @@
             <p>{{ $conversation->last_message }}</p>
         </div>
     </div>
-</x-card>
+</x-card> --}}

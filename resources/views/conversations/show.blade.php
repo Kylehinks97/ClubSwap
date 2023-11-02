@@ -57,9 +57,12 @@
                     <div class="bg-black text-white custom-rounded fit-content px-4 py-2 my-2 ml-4">
                         {{ $message->body }}
                     </div>
-                    <span class="text-xs text-gray-600">
-                        {{ $message->created_at->diffForHumans() }}
-                    </span>
+                    <br>
+                     @if ($loop->last)
+                <span class="text-xs text-gray-600">
+                    {{ $message->created_at->diffForHumans() }}
+                </span>
+            @endif
                 </div>
             @endforeach
         </div>

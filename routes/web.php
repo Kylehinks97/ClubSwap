@@ -58,9 +58,6 @@ Route::post('users/authenticate', [UserController::class, 'authenticate']);
 Route::get('/conversations', [ConversationController::class, 'index']);
 
 // Create new conversation
-Route::post('/conversations', [ConversationController::class, 'create'])->middleware('auth');
-
-// Create new conversation
 Route::get('/conversations/create', [ConversationController::class, 'create'])->middleware('auth');
 
 // |---------------------------------------------------------------------------------------

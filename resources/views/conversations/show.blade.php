@@ -88,7 +88,13 @@
             #input {
                 box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
             }
-            
+
+            @media (max-width: 600px) {
+                #send-message-btn {
+                    width: 100%;
+                }
+            }
+
         </style>
 
         <header>
@@ -121,7 +127,7 @@
             @error('message')
                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
             @enderror
-            <button type="submit" class="bg-black hover:bg-cslightgreen py-2 px-4  mt-2 text-white">
+            <button type="submit" id="send-message-btn" class="bg-black hover:bg-cslightgreen py-2 px-4  mt-2 text-white">
                 Send Message
             </button>
         </form>

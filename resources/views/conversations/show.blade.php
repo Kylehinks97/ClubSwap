@@ -42,6 +42,10 @@
                 max-width: 100%;
                 /* Optional: To ensure it doesn't overflow its container */
             }
+
+            .message {
+                margin: .5em;
+            }
         </style>
 
         <header>
@@ -53,16 +57,16 @@
         <!-- Chat Box for Message History -->
         <div id='scrollable-div' class="bg-white p-6 rounded-lg shadow-lg overflow-y-auto" style="height: 400px;">
             @foreach ($messages as $message)
-                <div class="m-3">
+                <div class="message">
                     <div class="bg-black text-white custom-rounded fit-content px-4 py-2 my-2 ml-4">
                         {{ $message->body }}
                     </div>
                     <br>
-                     @if ($loop->last)
-                <span class="text-xs text-gray-600">
-                    {{ $message->created_at->diffForHumans() }}
-                </span>
-            @endif
+                    @if ($loop->last)
+                        <span class="text-xs text-gray-600">
+                            {{ $message->created_at->diffForHumans() }}
+                        </span>
+                    @endif
                 </div>
             @endforeach
         </div>

@@ -9,8 +9,7 @@
 
         <form action="/conversations" method="POST" enctype="multipart/form-data">
             @csrf
-{{-- 
-            <input type="hidden" name="user_id_two" value="{{ $recipientUser }}"> --}}
+           <input type="hidden" name="user_id_two" value="{{ $recipientUser->id }}">
 
             <div class="mb-4">
                 <label for="message" class="inline-block text-md mb-1">Message</label>
@@ -20,6 +19,12 @@
                 @error('message')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
+            </div>
+
+            <div>
+                Recipient Name: {{ $recipientUser->name }}
+                Recipient Email: {{ $recipientUser->email }}
+                Recipient Location: {{ $recipientUser->location }}
             </div>
 
             <div class="mb-4">

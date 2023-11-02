@@ -57,6 +57,7 @@ Route::post('users/authenticate', [UserController::class, 'authenticate']);
 // All conversations
 Route::get('/conversations', [ConversationController::class, 'index']);
 
+
 // Show create conversation form
 Route::get('/conversations/create', [ConversationController::class, 'create'])->middleware('auth');
 

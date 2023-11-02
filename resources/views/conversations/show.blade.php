@@ -7,17 +7,14 @@
         </header>
 
 
-        <div class="mb-4">
-            <strong>Current User ID:</strong> {{ auth()->id() }}
-        </div>
+
         
         <!-- Chat Box for Message History -->
         <div class="bg-white p-6 rounded-lg shadow-lg overflow-y-auto" style="height: 400px;">
             @foreach ($messages as $message)
-            <strong>$message->user_id:</strong> {{ $message->user_id }}
-                <div class="{{ $message->user_id == auth()->id() ? 'text-right' : '' }}">
+                <div class="{{ $message->user_id === auth()->id() ? 'text-right' : '' }}">
                     <div
-                        class="{{ $message->user_id == auth()->id() ? 'inline-block bg-gray-200 rounded-tl-none rounded-lg px-4 py-2 my-2 ml-4' : 'inline-block bg-gray-100 rounded-lg px-4 py-2 my-2 mr-4' }}">
+                        class="{{ $message->user_id === auth()->id() ? 'inline-block bg-gray-200 rounded-tl-none rounded-lg px-4 py-2 my-2 ml-4' : 'inline-block bg-gray-100 rounded-lg px-4 py-2 my-2 mr-4' }}">
                         {{ $message->body }}
                     </div>
                     <br>

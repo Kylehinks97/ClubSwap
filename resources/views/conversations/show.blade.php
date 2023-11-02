@@ -6,7 +6,12 @@
             </h1>
         </header>
 
-        <!-- Chat Box for Message History -->
+
+        <div class="mb-4">
+            <strong>Current User ID:</strong> {{ auth()->id() }}
+            <strong>$message->user_id:</strong> {{ $message->user_id }}
+        </div>
+
         <!-- Chat Box for Message History -->
         <div class="bg-white p-6 rounded-lg shadow-lg overflow-y-auto" style="height: 400px;">
             @foreach ($messages as $message)
@@ -22,7 +27,6 @@
                 </div>
             @endforeach
         </div>
-
 
         <!-- New Message Form -->
         <form method="POST" action="{{ route('conversations.messages.store', $conversationId) }}" class="mt-6">

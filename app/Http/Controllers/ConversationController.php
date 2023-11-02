@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Conversation;
 use Illuminate\Http\Request;
 
@@ -35,9 +36,11 @@ class ConversationController extends Controller
         // Or return a JSON response if using an API
     }
 
-    public function create()
+    public function create(Request $request)
     {
-        return view('conversations.create'); // make sure the view exists
+        $recipientUserId = $request->query('user_id');
+        $recipientUser = User::find($recipientUserId);
+        return view('conversations.create', ['userId' => $recipientUser]); // make sure the view exists
     }
 
 }

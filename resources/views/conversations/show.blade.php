@@ -53,7 +53,7 @@
             </h1>
         </header>
         <strong>Current user ID: {{ auth()->id() }}</strong>
-        <strong>Convo user_two_id: {{ $conversation->user_id_two }}</strong>
+        <strong>Convo user_two_id: {{ $conversation->user_id_one }}</strong>
 
 
         <!-- Chat Box for Message History -->

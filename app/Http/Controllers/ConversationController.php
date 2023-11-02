@@ -73,6 +73,7 @@ class ConversationController extends Controller
 
         // Pass conversation data to the view
         return view('conversations.show', [
+            'conversation' => $conversation,
             'messages' => $conversation->messages,
             'recipientName' => $recipient->name,
             'conversationId' => $conversation->id,

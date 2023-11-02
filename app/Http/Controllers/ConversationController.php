@@ -24,7 +24,6 @@ class ConversationController extends Controller
         return view('conversations.index', compact('conversations'));
     }
 
-
     public function store(Request $request)
     {
         // Validate the request data
@@ -58,5 +57,49 @@ class ConversationController extends Controller
         $recipientUser = User::find($recipientUserId);
         return view('conversations.create', ['recipientUser' => $recipientUser]); // make sure the view exists
     }
+
+    public function show($conversationId)
+    {
+        // Assuming you have a Conversation model with related messages
+        $conversation = Conversation::with('messages')->findOrFail($conversationId);
+
+        // Ensure that the logged-in user is part of the conversation
+        if (!$this->userIsParticipant($conversation)) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        // Get recipient's information
+        $recipient = $this->getRecipient($conversation);
+
+        // Pass conversation data to the view
+        return view('conversations.show', [
+            'messages' => $conversation->messages,
+            'recipientName' => $recipient->name,
+            'conversationId' => $conversation->id,
+        ]);
+    }
+
+
+    // helper methods
+
+    // check user is actually part of this conversation
+    private function userIsParticipant($conversation)
+    {
+        $userId = auth()->id();
+        return $conversation->user_id_one == $userId || $conversation->user_id_two == $userId;
+    }
+
+    /**
+     * Get the recipient user of the conversation.
+     *
+     * @param Conversation $conversation
+     * @return User
+     */
+    private function getRecipient($conversation)
+    {
+        $userId = auth()->id();
+        return $userId == $conversation->user_id_one ? $conversation->userTwo : $conversation->userOne;
+    }
+ 
 
 }

@@ -57,11 +57,14 @@ Route::post('users/authenticate', [UserController::class, 'authenticate']);
 // All conversations
 Route::get('/conversations', [ConversationController::class, 'index']);
 
-// Show create conversation
+// Show create conversation form
 Route::get('/conversations/create', [ConversationController::class, 'create'])->middleware('auth');
 
 // Actually create the conversation
 Route::post('/conversations', [ConversationController::class, 'store'])->middleware('auth');
+
+// Show a conversation
+Route::get('/conversations/{conversation}', [ConversationController::class, 'show'])->middleware('auth');
 
 
 // |---------------------------------------------------------------------------------------

@@ -21,12 +21,6 @@
                 @enderror
             </div>
 
-            <div>
-                Recipient Name: {{ $recipientUser->name }}
-                Recipient Email: {{ $recipientUser->email }}
-                Recipient Location: {{ $recipientUser->location }}
-            </div>
-
             <div class="mb-4">
                 <button class="bg-black text-white rounded py-2 px-4 hover:bg-cslightgreen">
                     Send Message

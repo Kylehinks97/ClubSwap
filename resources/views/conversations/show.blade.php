@@ -90,7 +90,7 @@
                     <br>
                 </div>
                 @if ($loop->last)
-                    <span class="text-xs text-gray-600">
+                    <span class="text-xs ml-4 text-gray-600">
                         {{ $message->created_at->diffForHumans() }}
                     </span>
                 @endif

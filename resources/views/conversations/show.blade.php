@@ -52,9 +52,8 @@
                 Conversation with {{ $recipientName }}
             </h1>
         </header>
-
-        <strong>Current user ID: {{ auth()->user_id }}</strong>
-        <strong>Convo user_two_id: {{ auth()->user_id }}</strong>
+        <strong>Current user ID: {{ auth()->id() }}</strong>
+        <strong>Current user ID: {{ auth()->user()->id }}</strong>
 
         <!-- Chat Box for Message History -->
         <div id='scrollable-div' class="bg-white p-6 rounded-lg shadow-lg overflow-y-auto" style="height: 400px;">

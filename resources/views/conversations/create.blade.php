@@ -9,7 +9,7 @@
 
         <form action="/conversations" method="POST" enctype="multipart/form-data">
             @csrf
-            <input type="hidden" name="conversation_id" value="{{ $conversationId }}">
+            <input type="hidden" name="conversation_id" value="{{ $conversation->id }}">
 
             <div class="mb-4">
                 <label for="message" class="inline-block text-md mb-1">Message</label>
@@ -23,7 +23,7 @@
 
             <div class="mb-4">
                 <button class="bg-black text-white rounded py-2 px-4 hover:bg-cslightgreen">
-                    Create Post
+                    Send Message
                 </button>
                 <a href="/" class="text-black ml-4 hover:text-cslightgreen hover:underline"> Back </a>
             </div>

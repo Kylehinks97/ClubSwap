@@ -55,7 +55,7 @@
             }
 
             .message-left .message-content {
-                background-color: #007bff;
+                background-color: #379634;
                 /* or your desired color */
                 color: white;
                 margin-right: auto;
@@ -63,7 +63,7 @@
             }
 
             .message-right .message-content {
-                background-color: #6c757d;
+                background-color: #000000;
                 /* or your desired color */
                 color: white;
                 margin-left: auto;
@@ -75,7 +75,7 @@
                 border-radius: 15px;
                 max-width: 70%;
             }
-            
+
         </style>
 
         <header>

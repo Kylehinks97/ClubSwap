@@ -11,8 +11,9 @@
                     @foreach ($conversations as $conversation)
                         <tr class="border-gray-300">
                             <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                                <!-- Display Conversation Info Here -->
-                                {{ $conversation->last_message }} 
+                                <a href="{{ route('conversations.show', $conversation->id) }}" class="hover:underline">
+                                    {{ $conversation->last_message }}
+                                </a>
                             </td>
                         </tr>
                     @endforeach
@@ -31,4 +32,3 @@
         </div>
     </x-card>
 </x-layout>
-

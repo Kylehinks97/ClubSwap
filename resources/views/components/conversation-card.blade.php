@@ -3,7 +3,7 @@
 <x-card>
     <div class="flex">
         <div>
-            <p>{{ $conversations->last_message }}</p>
+            <p>{{ $conversation->last_message }}</p>
         </div>
     </div>
 </x-card>

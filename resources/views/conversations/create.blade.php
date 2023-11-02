@@ -9,7 +9,6 @@
 
         <form action="/conversations" method="POST" enctype="multipart/form-data">
             @csrf
-            <input type="hidden" name="conversation_id" value="{{ $conversation->id }}">
 
             <div class="mb-4">
                 <label for="message" class="inline-block text-md mb-1">Message</label>

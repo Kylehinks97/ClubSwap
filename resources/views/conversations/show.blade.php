@@ -28,6 +28,13 @@
             #scrollable-div::-webkit-scrollbar-thumb:hover {
                 background: #555;
             }
+
+            .custom-rounded {
+                border-radius: 0.5rem;
+                /* Apply rounding to all corners */
+                border-top-left-radius: 0;
+                /* Remove rounding from top-left corner */
+            }
         </style>
 
         <header>
@@ -40,12 +47,9 @@
         <div id='scrollable-div' class="bg-white p-6 rounded-lg shadow-lg overflow-y-auto" style="height: 400px;">
             @foreach ($messages as $message)
                 <div class="{{ $message->user_id == auth()->id() ? 'text-right' : '' }}">
-                    <div class="bg-black text-white rounded-lg rounded-tl-none px-4 py-2 my-2 ml-4">
+                    <div class="bg-black text-white custom-rounded px-4 py-2 my-2 ml-4">
                         {{ $message->body }}
                     </div>
-
-
-                    <br>
                     <span class="text-xs text-gray-600">
                         {{ $message->created_at->diffForHumans() }}
                     </span>

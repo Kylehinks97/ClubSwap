@@ -11,7 +11,7 @@
             @foreach ($messages as $message)
                 <div class="{{ $message->user_id == auth()->id() ? 'text-right' : '' }}">
                     <div class="inline-block bg-gray-200 rounded-lg px-4 py-2 my-2 {{ $message->user_id == auth()->id() ? 'bg-blue-200 ml-4' : 'mr-4' }}">
-                        {{ $message->content }}
+                        {{ $message->text }}
                     </div>
                     <br>
                     <span class="text-xs text-gray-600">

@@ -3,7 +3,7 @@
 use Kreait\Firebase\Factory;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\ConversationController;
 
@@ -66,6 +66,12 @@ Route::post('/conversations', [ConversationController::class, 'store'])->middlew
 Route::get('/conversations/{conversation}', [ConversationController::class, 'show'])
     ->name('conversations.show')
     ->middleware('auth');
+
+// Route to handle sending messages
+Route::post('/messages/send/{conversationId}', [MessageController::class, 'send'])
+    ->name('send.message')
+    ->middleware('auth');
+
 
 
 // |---------------------------------------------------------------------------------------

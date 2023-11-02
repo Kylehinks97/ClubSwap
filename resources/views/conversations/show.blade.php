@@ -22,7 +22,7 @@
         </div>
 
         <!-- New Message Form -->
-        <form method="POST" action="{{ route('send.message', $conversationId) }}" class="mt-6">
+        <form method="POST" action="" class="mt-6">
             @csrf
             <textarea class="w-full border border-gray-300 rounded p-2" name="message" rows="4" placeholder="Type your message here..."></textarea>
             @error('message')

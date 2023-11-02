@@ -88,12 +88,12 @@
                         {{ $message->body }}
                     </div>
                     <br>
-                    @if ($loop->last)
-                        <span class="text-xs text-gray-600">
-                            {{ $message->created_at->diffForHumans() }}
-                        </span>
-                    @endif
                 </div>
+                @if ($loop->last)
+                    <span class="text-xs text-gray-600">
+                        {{ $message->created_at->diffForHumans() }}
+                    </span>
+                @endif
             @endforeach
         </div>
         <!-- New Message Form -->

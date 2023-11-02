@@ -6,7 +6,6 @@
                 overflow-y: auto;
                 background-color: white;
                 padding: 6px;
-                border-radius: 0.5rem;
                 /* This is equivalent to rounded-lg in Tailwind */
                 box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
                 /* This mimics shadow-lg in Tailwind */
@@ -53,6 +52,9 @@
                 Conversation with {{ $recipientName }}
             </h1>
         </header>
+
+        <strong>Current user ID: {{ auth()->user_id }}</strong>
+        <strong>Convo user_two_id: {{ auth()->user_id }}</strong>
 
         <!-- Chat Box for Message History -->
         <div id='scrollable-div' class="bg-white p-6 rounded-lg shadow-lg overflow-y-auto" style="height: 400px;">

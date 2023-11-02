@@ -14,7 +14,7 @@ class ConversationController extends Controller
         ]);
     }
 
-    public function create(Request $request)
+    public function store(Request $request)
     {
         // Validate the request data
         $data = $request->validate([
@@ -34,4 +34,10 @@ class ConversationController extends Controller
         return redirect()->back()->with('success', 'Conversation created successfully.');
         // Or return a JSON response if using an API
     }
+
+    public function create()
+    {
+        return view('conversations.create'); // make sure the view exists
+    }
+
 }

@@ -25,7 +25,7 @@
             }
 
             #scrollable-div::-webkit-scrollbar-thumb:hover {
-                background: #555;
+                background: #000000;
             }
 
             .custom-rounded {
@@ -106,7 +106,7 @@
         <div id='scrollable-div' class="bg-white p-6 shadow-lg overflow-y-auto" style="height: 400px;">
             @foreach ($messages as $message)
                 <div class="{{ $message->user_id == auth()->id() ? 'message-left' : 'message-right' }} message">
-                    <div class="message-content custom-rounded fit-content px-4 py-2 my-2 ml-4">
+                    <div class="message-content custom-rounded fit-content px-4 py-2 my-2">
                         {{ $message->body }}
                     </div>
                     <br>

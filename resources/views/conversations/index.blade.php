@@ -1,19 +1,34 @@
 <x-layout>
+    <x-card class="p-10">
+        <header>
+            <h1 class="text-3xl text-center font-bold my-6 uppercase">
+                Conversations
+            </h1>
+        </header>
+        <table class="w-full table-auto rounded-sm">
+            <tbody>
+                @unless ($conversations->isEmpty())
+                    @foreach ($conversations as $conversation)
+                        <tr class="border-gray-300">
+                            <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
+                                <!-- Display Conversation Info Here -->
+                                {{ $conversation->last_message }} 
+                            </td>
+                        </tr>
+                    @endforeach
+                @else
+                    <tr class="border-gray-300">
+                        <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
+                            <p class="text-center">No conversations found</p>
+                        </td>
+                    </tr>
+                @endunless
+            </tbody>
+        </table>
 
-    <div class="lg:grid lg:grid-cols-2 gap-4 space-y4 md:space-y-0 mx-4">
-
-        @unless (count($conversations) == 0)
-            @foreach ($conversations as $conversation)
-                <x-conversation-card :conversation="$conversation" />
-            @endforeach
-        @else
-            <p>No conversations</p>
-        @endunless
-
-    </div>
-
-    <div class="mt-6 p-4">
-        {{ $conversations->links() }}
-    </div>
-
+        <div class="mt-6 p-4">
+            {{ $conversations->links() }}
+        </div>
+    </x-card>
 </x-layout>
+

@@ -45,6 +45,37 @@
             .message {
                 margin: .5em;
             }
+
+            .message-left,
+            .message-right {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+                /* or your desired spacing */
+            }
+
+            .message-left .message-content {
+                background-color: #007bff;
+                /* or your desired color */
+                color: white;
+                margin-right: auto;
+                /* aligns the bubble to the left */
+            }
+
+            .message-right .message-content {
+                background-color: #6c757d;
+                /* or your desired color */
+                color: white;
+                margin-left: auto;
+                /* aligns the bubble to the right */
+            }
+
+            .message-content {
+                padding: 8px 15px;
+                border-radius: 15px;
+                max-width: 70%;
+            }
+            
         </style>
 
         <header>
@@ -55,10 +86,10 @@
         <!-- Chat Box for Message History -->
         <div id='scrollable-div' class="bg-white p-6 rounded-lg shadow-lg overflow-y-auto" style="height: 400px;">
             @foreach ($messages as $message)
-            <strong>{{$message->user_id}}</strong>
-            <strong>{{auth()->id()}}</strong>
-                <div class="{{ $message->user_id == auth()->id() ? 'text-left' : 'text-right' }} message">
-                    <div class="bg-black text-white custom-rounded fit-content px-4 py-2 my-2 ml-4">
+                <strong>{{ $message->user_id }}</strong>
+                <strong>{{ auth()->id() }}</strong>
+                <div class="{{ $message->user_id == auth()->id() ? 'message-left' : 'message-right' }} message">
+                    <div class="message-content custom-rounded fit-content px-4 py-2 my-2 ml-4">
                         {{ $message->body }}
                     </div>
                     <br>

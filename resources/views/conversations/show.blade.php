@@ -14,7 +14,7 @@
             @foreach ($messages as $message)
                 <div class="{{ $message->user_id == auth()->id() ? 'text-right' : '' }}">
                     <div
-                        class="{{ $message->user_id == auth()->id() ? inline-block bg-gray-200 rounded-tl-none rounded-lg px-4 py-2 my-2 ml-4 : inline-block bg-gray-100 rounded-lg px-4 py-2 my-2 mr-4 }}">
+                        class="inline-block bg-gray-200 rounded-tl-none rounded-lg px-4 py-2 my-2 ml-4">
                         {{ $message->body }}
                     </div>
                     <br>

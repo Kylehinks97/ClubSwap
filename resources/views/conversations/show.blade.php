@@ -127,7 +127,7 @@
             @error('message')
                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
             @enderror
-            <button type="submit" id="send-message-btn" class="bg-black hover:bg-cslightgreen py-2 px-4  mt-2 text-white">
+            <button type="submit" id="send-message-btn" class="bg-black hover:bg-cslightgreen py-2 px-4 mt-6 text-white">
                 Send Message
             </button>
         </form>

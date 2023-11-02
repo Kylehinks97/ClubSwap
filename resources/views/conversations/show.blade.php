@@ -1,16 +1,43 @@
 <x-layout>
     <x-card class="p-10">
+        <style>
+            #scrollable-div {
+                height: 400px;
+                overflow-y: auto;
+                background-color: white;
+                padding: 6px;
+                border-radius: 0.5rem;
+                /* This is equivalent to rounded-lg in Tailwind */
+                box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+                /* This mimics shadow-lg in Tailwind */
+            }
+
+            /* Optional: Custom scrollbar styles */
+            #scrollable-div::-webkit-scrollbar {
+                width: 10px;
+            }
+
+            #scrollable-div::-webkit-scrollbar-track {
+                background: #f1f1f1;
+            }
+
+            #scrollable-div::-webkit-scrollbar-thumb {
+                background: #888;
+            }
+
+            #scrollable-div::-webkit-scrollbar-thumb:hover {
+                background: #555;
+            }
+        </style>
+
         <header>
             <h1 class="text-3xl text-center font-bold my-6 uppercase">
                 Conversation with {{ $recipientName }}
             </h1>
         </header>
 
-
-
-
         <!-- Chat Box for Message History -->
-        <div class="bg-white p-6 rounded-lg shadow-lg overflow-y-auto" style="height: 400px;">
+        <div id='scrollable-div' class="bg-white p-6 rounded-lg shadow-lg overflow-y-auto" style="height: 400px;">
             @foreach ($messages as $message)
                 <div class="{{ $message->user_id == auth()->id() ? 'text-right' : '' }}">
                     <div class="bg-gray-200 rounded-tr-lg rounded-br-lg rounded-bl-lg px-4 py-2 my-2 ml-4">

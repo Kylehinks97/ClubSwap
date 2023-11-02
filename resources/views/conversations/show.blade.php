@@ -111,7 +111,7 @@
         <!-- New Message Form -->
         <form method="POST" action="{{ route('conversations.messages.store', $conversationId) }}" class="mt-6">
             @csrf
-            <textarea class="w-full border border-gray-300 p-2" name="message" rows="2"
+            <textarea class="w-full border border-gray-300 shadow-lg p-2" name="message" rows="2"
                 placeholder="Type your message here..."></textarea>
             @error('message')
                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>

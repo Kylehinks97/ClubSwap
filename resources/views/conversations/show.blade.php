@@ -20,7 +20,7 @@
                 </div>
             @endforeach
         </div>
-        
+
 
         <!-- New Message Form -->
         <form method="POST" action="{{ route('conversations.messages.store', $conversationId) }}" class="mt-6">
@@ -29,7 +29,7 @@
             @error('message')
                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
             @enderror
-            <button type="submit" class="bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600 mt-2">
+            <button type="submit" class="bg-black hover:bg-csgreen p-1">
                 Send Message
             </button>
         </form>

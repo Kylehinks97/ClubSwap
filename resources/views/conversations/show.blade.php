@@ -73,6 +73,13 @@
                 max-width: 70%;
             }
 
+            .created-at-left {
+                margin-right: auto;
+            }
+
+            .created-at-right {
+                margin-left: auto;
+            }
         </style>
 
         <header>
@@ -90,7 +97,7 @@
                     <br>
                 </div>
                 @if ($loop->last)
-                    <span class="text-xs ml-4 text-gray-600">
+                    <span class="{{ $message->user_id == auth()->id() ? 'created-at-left' : 'created-at-right' }} text-xs ml-4 text-gray-600">
                         {{ $message->created_at->diffForHumans() }}
                     </span>
                 @endif

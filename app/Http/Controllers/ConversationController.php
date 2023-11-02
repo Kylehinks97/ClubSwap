@@ -9,12 +9,21 @@ use Illuminate\Support\Facades\Auth;
 
 class ConversationController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        return view('conversations.index', [
-            'conversations' => Conversation::latest()->paginate(8)
-        ]);
+        // Get the ID of the currently logged-in user
+        $userId = auth()->id();
+
+        // Retrieve conversations where the current user is either user_id_one or user_id_two
+        $conversations = Conversation::where('user_id_one', $userId)
+            ->orWhere('user_id_two', $userId)
+            ->latest()
+            ->paginate(8);
+
+        // Pass the conversations to the view
+        return view('conversations.index', compact('conversations'));
     }
+
 
     public function store(Request $request)
     {

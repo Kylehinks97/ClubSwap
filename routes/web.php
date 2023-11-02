@@ -68,9 +68,7 @@ Route::get('/conversations/{conversation}', [ConversationController::class, 'sho
     ->middleware('auth');
 
 // Route to handle sending messages
-Route::post('/messages/send/{conversationId}', [MessageController::class, 'send'])
-    ->name('send.message')
-    ->middleware('auth');
+Route::post('/conversations/{conversation}/messages', [MessageController::class, 'store'])->name('conversations.messages.store')->middleware('auth');
 
 
 

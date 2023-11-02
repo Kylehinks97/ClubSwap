@@ -48,4 +48,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Listing::class, 'user_id');
     }
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
+
 }

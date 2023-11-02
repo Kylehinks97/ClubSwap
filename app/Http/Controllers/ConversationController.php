@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Conversation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ConversationController extends Controller
 {
@@ -19,21 +20,27 @@ class ConversationController extends Controller
     {
         // Validate the request data
         $data = $request->validate([
-            'user_id_one' => 'required|exists:users,id',
             'user_id_two' => 'required|exists:users,id',
-            'last_message' => 'nullable|string',
+            'message' => 'required|string|max:1000', // Assuming a max length for messages
         ]);
+
+        // Check if the user is authenticated
+        if (!Auth::check()) {
+            return redirect()->route('login')->withErrors('You must be logged in to send a message.');
+        }
+
+        // Get the currently authenticated user's ID
+        $userIdOne = Auth::id();
 
         // Create the conversation
         $conversation = Conversation::create([
-            'user_id_one' => $data['user_id_one'],
+            'user_id_one' => $userIdOne,
             'user_id_two' => $data['user_id_two'],
-            'last_message' => $data['last_message'] ?? null,
+            'last_message' => $data['message'],
         ]);
 
-        // Redirect or return a response
-        return redirect()->back()->with('success', 'Conversation created successfully.');
-        // Or return a JSON response if using an API
+        // Redirect back with a success message
+        return redirect()->to('/conversations')->with('success', 'Message sent successfully.');
     }
 
     public function create(Request $request)
